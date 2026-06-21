@@ -4,11 +4,9 @@ from drivers.factory import create_driver
 
 clock = ClockWidget()
 
-data = clock.render()
-
 renderer = Renderer()
 
-img = renderer.render(data)
+img = renderer.render()
 
 # driver = PreviewDriver()
 # driver = WaveshareDriver()
