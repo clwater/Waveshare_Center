@@ -1,7 +1,6 @@
-from widgets.clock_widget import ClockWidget
 from renderer import Renderer
-from driver import PreviewDriver
-
+from widgets.clock_widget import ClockWidget
+from drivers.factory import create_driver
 
 clock = ClockWidget()
 
@@ -11,6 +10,8 @@ renderer = Renderer()
 
 img = renderer.render(data)
 
-driver = PreviewDriver()
+# driver = PreviewDriver()
+# driver = WaveshareDriver()
 
+driver = create_driver()
 driver.show(img)
