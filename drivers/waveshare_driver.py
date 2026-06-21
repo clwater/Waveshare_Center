@@ -1,7 +1,7 @@
 from PIL import Image
 
 from .base_driver import DisplayDriver
-from waveshare_epd import epd10in85
+from waveshare_epd import epd10in85g
 
 
 class WaveshareDriver(DisplayDriver):
