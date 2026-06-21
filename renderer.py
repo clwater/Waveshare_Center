@@ -1,8 +1,11 @@
+from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-
 
 WIDTH = 1360
 HEIGHT = 480
+
+BASE_DIR = Path(__file__).resolve().parent
+FONT_FILE = BASE_DIR / "fonts" / "msyh.ttc"
 
 
 class Renderer:
@@ -18,12 +21,12 @@ class Renderer:
         draw = ImageDraw.Draw(img)
 
         font_big = ImageFont.truetype(
-            "C:/Windows/Fonts/msyh.ttc",
+            str(FONT_FILE),
             120
         )
 
         font_small = ImageFont.truetype(
-            "C:/Windows/Fonts/msyh.ttc",
+            str(FONT_FILE),
             40
         )
 
