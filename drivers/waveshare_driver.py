@@ -1,7 +1,7 @@
 from PIL import Image
 
 from .base_driver import DisplayDriver
-from waveshare_epd import epd10in85g
+from waveshare_epd import epd10in85
 
 
 class WaveshareDriver(DisplayDriver):
@@ -14,7 +14,10 @@ class WaveshareDriver(DisplayDriver):
     def startup(self):
 
         if not self.initialized:
-            self.epd.init()
+            init_fn = getattr(self.epd, "init", None) or getattr(self.epd, "Init", None)
+            if init_fn is None:
+                raise AttributeError("EPD driver has no init/Init method")
+            init_fn()
             self.initialized = True
 
     def show(self, image: Image.Image):
